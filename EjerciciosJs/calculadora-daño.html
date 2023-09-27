@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculadora de daño</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+			background-color: rgb(247, 247, 203);
+		}
+		h1{
+			text-align: center;
+			margin: 10px 0;
+			color: red;
+		}
+		input,label,button{
+			display: block;
+			margin:10px 0;
+		}
+		.container{
+			width: 600px;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		fieldset{
+			width: 50%;
+			margin:20px 0;
+			padding: 20px;
+		}
+		select{
+			margin-right: 20px;
+		}
+		.sub-container{
+			display: flex;
+			flex-direction: column;
+			align-self: flex-end;
+		}
+		.sub-container button{
+			align-self: center;
+		}
+		.container p{
+			align-content: flex-end;
+			width: 40%;
+		}
+
+		button{
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: rgb(3, 173, 3);
+            margin-left: 10px;
+        }
+
+        button:hover{
+            background-color: rgb(4, 126, 4);
+        }
+	
+	</style>
+</head>
+
+<body>
+	<h1>Calculadora de daño pokémon</h1>
+	<div class="container">
+		<fieldset>
+			<legend><strong>Seleccione los poderes</strong></legend>
+			<select id="daños">
+				<option value="electricidad" id="poder01">Electricidad</option>
+				<option value="agua" id="poder02">Agua</option>
+				<option value="fuego" id="poder03">Fuego</option>
+				<option value="Heirba" id="poder04">Heirba</option>
+			</select>
+			<select id="daños02">
+				<option value="electricidad" id="poder011">Electricidad</option>
+				<option value="agua" id="poder022">Agua</option>
+				<option value="fuego" id="poder033">Fuego</option>
+				<option value="Heirba" id="poder044">Heirba</option>
+			</select>
+		</fieldset>
+		<p id="resultado"></p>
+		<div class="sub-container">
+			<label for="ataque-defensa">Nivel de ataque: <input type="number" name="ataque-defensa" max="5" required id="attack"></label>
+			<label for="ataque-defensa">Nivel de defensa: <input type="number" name="ataque-defensa" max="5" required id="defense"></label>
+			<button id="accion" onclick="calculateDamage(document.getElementById('daños').value,document.getElementById('daños02').value,document.getElementById('attack').value,document.getElementById('defense').value)">Calcular</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function calculateDamage(type1,type2,attack,defense){
+			let efficacy=0.5;
+
+			if(type1!=type2){
+				if(type1=="Fuego"&&type2=="Heirba") efficacy=2;
+				if(type1=="Agua"&&type2=="Fuego") efficacy=2;
+				if(type1=="Heirba"&&type2=="Agua") efficacy=2;
+				if(type1=="Electricidad"&&type2=="Agua") efficacy=2;
+				if((type1=="Fuego"&&type2=="Electricidad")||(type2=="Fuego"&&type1=="Electricidad")) efficacy=1;
+				if((type1=="Fuego"&&type2=="Heirba")||(type2=="Fuego"&&type1=="Heirba")) efficacy=1;
+			}
+			document.getElementById("resultado").innerHTML="El daño es: "+Math.ceil(50*(attack/defense)*efficacy);
+		}
+	</script>
+</body>
+
+</html>

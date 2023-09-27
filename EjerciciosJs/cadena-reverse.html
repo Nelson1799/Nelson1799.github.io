@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventir una frase</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            background-color: rgb(247, 247, 203);;
+        }
+        h1{
+            text-align: center;
+            color: rgb(123,0 , 12);
+            margin: 10px 0;
+        }
+        input,button{
+            margin: 15px;
+            display: block;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            margin-left: 10px;
+            background-color: rgb(8, 190, 8);
+            border: none;
+            padding: 10px;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: rgb(4, 145, 4);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Vamos a invertir una frase</h1>
+    
+    <div class="container">
+        <input type="text" id="texto" name="input-entrada" placeholder="Escribe una frase" required>
+        <button id="invertir" onclick="invertiCadena(document.getElementById('texto').value)">Invertir</button>
+    </div>
+    <script type="text/javascript">
+        function invertiCadena(cad){
+            window.alert(cad.split("").reverse("").join(""));
+        }
+    </script>
+</body>
+</html>

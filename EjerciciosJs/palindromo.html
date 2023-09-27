@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindroma</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(247, 247, 203);;
+        }
+        h1{
+            text-align: center;
+            margin: 10px 0;
+            color: red;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        button{
+            margin-left: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: rgb(0, 199, 0);
+        }
+
+        button:hover{
+            background-color: rgb(4, 131, 4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Palabra Palíndroma</h1>
+    <div class="container">
+        <input type="text" id="cadena" placeholder="Escribe una frase" required>
+        <button id="Comprobar" onclick="verificar()">Comprobar</button>
+    </div>
+    <script>
+        function verificar(){
+            let cad = document.getElementById("cadena").value;
+            let reverse=cad.split("").reverse("").join("");
+
+            if(cad==reverse){
+                alert(cad+" Es palindroma");
+            }
+            else{
+                alert(cad+" No es palindroma");
+            }
+        }
+    </script>
+</body>
+</html>

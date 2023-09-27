@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(247, 247, 203);;
+        }
+        h1{
+            text-align: center;
+            margin: 10px 0;
+            color: red;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            margin:10px 0;
+            padding: 10px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(6, 192, 6);
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: rgb(5, 141, 5);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Serie Fibonacci</h1>
+    <div class="container">
+        <textarea id="resultado" rows="15"></textarea>
+        <button id="generar" onclick="sequence()">Generar secuencia</button>
+        <script type="text/javascript">
+            function sequence(){
+                let x=0;
+                let y=1;
+                let z=0;
+                let vista=document.getElementById("resultado");
+                for(let i=0;i<15;i++){
+                    z=x+y;
+                    vista.innerHTML+=" \n"+z;
+                    y=x;
+                    x=z;
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

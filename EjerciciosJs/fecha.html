@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Averiguar</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            background-color: rgb(247, 247, 203);
+        }
+        h1{
+            text-align: center;
+            margin:10px 0;
+            color: red;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .sub-container{
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: rgb(3, 173, 3);
+            margin-left: 10px;
+        }
+
+        button:hover{
+            background-color: rgb(4, 126, 4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Buscar Fecha</h1>
+    <div class="container">
+       <input type="date" id="entrada" placeholder="Seleciona una fecha" required>
+        <button onclick="knowDate(document.getElementById('entrada').value)">Buscar fecha</button>
+    </div>
+    <div class="sub-container">
+        <textarea  id="salida" rows="10" cols="40" readonly></textarea>
+    </div>
+
+    <script type="text/javascript">
+        function knowDate(date){
+            let output=document.getElementById("salida");
+            let d=new Date(date);
+            let aux=new Date(date);
+            d.setDate(aux.getDate()-(aux.getDate()-1));
+            output.innerHTML+="Primer fecha: "+d+" \n";
+            for(let i=31;i>27;i--){
+                d.setDate(i);
+                if(d.getMonth()>aux.getMonth()){
+                    d=new Date(date);
+                }
+                else{
+                    output.innerHTML+="Segunda fecha: "+d+" \n";
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

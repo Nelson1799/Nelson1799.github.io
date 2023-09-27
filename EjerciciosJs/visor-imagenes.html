@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Visor</title>
+	<style type="text/css">
+		*{
+			margin: auto;
+			padding: 0;
+			text-align: center;
+			background-color: rgb(247, 247, 203);
+		}
+		.collection{
+			float:left;
+			width:25%;
+			background-color: #e3f2ff;
+		}
+		.collection img{
+			width:35%;
+			margin:5%;
+			cursor:pointer;
+		}
+		#principal{
+			float:left;
+			width:75%;
+		}
+		#visor{
+			width:60%;
+			margin:10%;
+		}
+		#visor img{
+			width:100%;
+		}
+
+		h1{
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Visor de imagenes</h1>
+	<div class="collection">
+		<img src="images/foto1.jpg" alt="Alex Suprun" name="foto1" onclick="mifoto(1)">
+		<img src="images/foto2.jpg" alt="Ehsan Ahmadi" name="foto2" onclick="mifoto(2)">
+		<img src="images/foto3.jpg" alt="Rans Fordquaye" name="foto3" onclick="mifoto(3)">
+		<img src="images/foto4.jpg" alt="Vicky Hladynets" name="foto4" onclick="mifoto(4)">
+	</div>
+	<div id="principal">
+		<div id="visor">
+			<img src="images/foto1.jpg" alt="Alex Suprun" name="fotovisor">
+			<div id="titulo"><p id="texto"></p></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.onload= function(){
+			visor1=document.getElementById("visor");
+			mititulo=document.getElementById("titulo");
+		}
+		function mifoto(num){
+			f="images/foto"+num+".jpg";
+			document.images["fotovisor"].src=f;
+			document.getElementById("texto").innerHTML+=t;
+		}
+	</script>
+</body>
+
+</html>

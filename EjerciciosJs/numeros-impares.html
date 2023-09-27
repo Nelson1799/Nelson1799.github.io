@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Numero impar</title>
+	<style>
+		/*Estilos generales*/
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			background-color: rgb(247, 247, 203);
+		}
+
+		/*Estilo al contenido*/
+		h1 {
+			text-align: center;
+			margin: 50px 50px;
+			color: red;
+		}
+
+		.container {
+			margin: 0 auto;
+			width: 500px;
+			display: flex;
+			flex-direction: column;
+		}
+
+		input,
+		textarea {
+			display: block;
+			margin: 10px;
+			width: 100%;
+		}
+
+		button {
+			width: 40%;
+			align-self: center;
+			margin:10px 0;
+		}
+
+		.generar{
+			background-color: rgb(1, 163, 1);
+			padding: 10px;
+			border-radius: 5px;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+
+		.generar:hover{
+			background-color: rgb(7, 128, 7);
+		}
+
+		.Limpiar:hover{
+			background-color: rgb(24, 107, 139);
+		}
+
+		.Limpiar{
+			background-color: rgb(65, 160, 197);
+			padding: 10px;
+			border-radius: 5px;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>Imprimir los números impares en un rango dado</h1>
+		<div class="container">
+			<label for="input-number"><u>Valor A:</u></label>
+			<input type="number" name="input-number-a" id="valor-a" required>
+			<label for="input-number-b"><u>Valor B:</u></label>
+			<input type="number" name="input-number-b" id="valor-b" required>
+			<textarea name="pantalla" id="resultado" rows="10"></textarea>
+			<button id="generar" class="generar" onclick="generarNumeros()">Generar</button>
+			<button id="Limpiar" class="Limpiar" onclick="limpiarTextArea()">Limpiar</button>
+		</div>
+		
+	
+
+	<script>
+		function generarNumeros() {
+			let a = document.getElementById("valor-a").value;
+			let b = document.getElementById("valor-b").value;
+			let r = document.getElementById("resultado");
+			
+			for (let n = a; n <= b; n++) {
+				if (n % 2 != 0) {
+					r.innerHTML +=  ' \n'+n;
+				}
+			}
+			
+		}//end function
+
+		function limpiarTextArea(){
+			document.getElementById("resultado").innerHTML=" ";
+		}
+	</script>
+</body>
+
+</html>
